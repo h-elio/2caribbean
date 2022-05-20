@@ -1,0 +1,107 @@
+body {
+    font-family: 돋움, dotum, sans-serif;
+}
+
+.inner {
+    width: 960px;
+    margin: auto;
+}
+
+.header {
+    color: #666;
+}
+
+.header .inner {
+    height: 40px;
+}
+
+.header-top {
+    background-color: #f6f6f6;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 13.5px;
+    font-weight: bold;
+}
+
+.header-top .inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-right: 31px;
+}
+
+.sitemenu {
+    display: flex;
+    text-align: center;
+}
+
+.sitemenu li {
+    width: 119px;
+    border-left: 1px solid #d9d9d9;
+}
+
+.sitemenu li:last-child {
+    width: 95px;
+}
+
+.language-box {
+    width: 166px;
+    border-left: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+.reservation {
+    display: flex;
+}
+
+.reservation li {
+    width: 98px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+.reservation li:first-child {
+    background-color: #ff8001;
+}
+.reservation li:nth-child(2) {
+    background-color: #2ebdca;
+}
+.reservation li:last-child {
+    background-color: #8a2fd5;
+}
+
+.header-middle {
+    border-bottom: 3px solid #548ce0;
+    height: 65px;
+}
+
+.header-middle .inner {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header-middle .util {
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+.carib-logo {
+    z-index: -1;
+}
+
+.gnb {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.gnb .dep1 {
+    font-size: 20px;
+}
