@@ -1,15 +1,23 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Noto+Sans+KR:wght@300;400;500&display=swap");
 body {
-  font-family: 돋움, dotum, sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-.inner {
+header .inner {
   width: 960px;
+  margin: auto;
+}
+
+main .inner,
+footer .inner {
+  width: 1000px;
   margin: auto;
 }
 
 .header {
   color: #666;
+  font-family: 돋움, dotum, sans-serif;
 }
 
 .header .inner {
@@ -94,6 +102,29 @@ body {
   display: flex;
   position: absolute;
   right: 0;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.util li {
+  font-size: 12px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.util li::after {
+  content: "";
+  width: 1px;
+  height: 9px;
+  background-color: #999;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -10px;
+}
+
+.util li:last-child::after {
+  display: none;
 }
 
 .carib-logo {
@@ -102,10 +133,358 @@ body {
 
 .gnb {
   display: flex;
-  justify-content: space-between;
   text-align: center;
 }
 
-.gnb .dep1 {
+.gnb .dep1 > a {
+  display: block;
+  width: 240px;
+  font-weight: bold;
+  height: 41px;
+  line-height: 43px;
+  border-bottom: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+.gnb .dep1 > a:hover {
+  background-color: rgb(24, 165, 255);
+  color: #fff;
+}
+
+.gnb .dep1 .dep2 {
+  display: none;
+  text-align: left;
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  height: 215px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.gnb .dep1:first-child .dep2 {
+  border-left: 1px solid #d9d9d9;
+}
+
+.gnb .dep1 .dep2 li a {
+  display: block;
+  font-weight: normal;
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.gnb .dep1 .dep2 li a:hover {
+  color: #548ce0;
+  text-decoration: underline;
+}
+
+.gnb:hover .dep2 {
+  display: block;
+}
+
+.main-banner {
+  width: 100vw;
+}
+
+.main-banner .banner-bg {
+  width: 100vw;
+  min-height: 371px;
+  max-height: 570px;
+  position: relative;
+  z-index: -999;
+}
+
+.banner-txt {
+  z-index: -998;
+  width: 70%;
+  max-width: 1000px;
+  position: absolute;
+  top: 145px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 38px;
+  color: #272830;
+  padding: 60px 0 40px 0;
+}
+
+.section-title .subtitle {
+  font-family: "Noto Sans KR", Montserrat, "Malgun Gothic", Dotum, sans-serif;
   font-size: 20px;
+  font-weight: 300;
+  margin-top: 10px;
+  display: block;
+}
+
+.ticket-promotion {
+  background-color: #f7f7f7;
+  padding-bottom: 60px;
+}
+
+.ticket-promotion ul {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+}
+
+.ticket-promotion ul li {
+  width: 20%;
+}
+
+.ticket-promotion ul li a {
+  display: block;
+}
+
+.ticket-promotion li a p:nth-of-type(1) {
+  font-size: 14px;
+  margin: 15px 0;
+}
+
+.ticket-promotion li a img {
+  width: 62px;
+  margin-bottom: 12px;
+}
+
+.ticket-promotion li a p:nth-of-type(2) {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.ticket-promotion li a p:nth-of-type(3) {
+  font-size: 15px;
+  margin-top: 3px;
+  margin-bottom: 55px;
+}
+
+.content-area {
+  text-align: center;
+}
+
+.desc-btn {
+  display: inline-block;
+  width: 250px;
+  height: 45px;
+  line-height: 45px;
+  padding-right: 23px;
+  margin-top: 26px;
+  border: 2px solid #548ce0;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background: url("../cari-img/btn_arr_black.png") no-repeat right 13px center;
+  background-color: #fff;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+.information .content-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.information .content-area > div {
+  margin: 0 4.5px;
+  width: 323px;
+  height: 496px;
+  border: 1px solid #d9d9d9;
+  border-top: 2px solid #548ce0;
+}
+
+.content-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  padding-bottom: 33px;
+  position: relative;
+}
+
+.smart-content .content-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -19px;
+  width: 106px;
+  height: 148px;
+  background: url(../cari-img/bg_smart_reservation_ico.png) no-repeat;
+}
+
+.content-title span {
+  font-size: 18px;
+  display: block;
+}
+
+.news-notice {
+  padding: 37px 21px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.news-list {
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  font-size: 15px;
+}
+
+.news-list li {
+  text-align: left;
+  height: 47px;
+  line-height: 47px;
+  border-top: 1px solid #d9d9d9;
+}
+
+.news-notice img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.today {
+  padding: 37px 21px;
+  box-sizing: border-box;
+}
+
+.today-date {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  border-top: 1px solid #d9d9d9;
+  padding: 10px 0;
+}
+
+.time-indoor,
+.time-outdoor {
+  font-family: "Montserrat", sans-serif;
+  font-size: 33px;
+  color: #134ef6;
+  padding: 5px 0;
+}
+
+.today-info small {
+  font-size: 15px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #423b38;
+}
+
+.close {
+  color: #134ef6;
+  padding: 10px 0;
+}
+
+.today-info .desc-btn {
+  color: #134ef6;
+  background: none;
+  width: 184px;
+  padding: 0;
+  font-size: 15px;
+  box-shadow: none;
+}
+
+.today-info dd:nth-of-type(4) {
+  line-height: 1.5;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.information .smart-content {
+  border: none !important;
+}
+
+.smart-content .content-title {
+  padding: 35px 0;
+  background-color: #134ef6;
+  color: white;
+}
+
+.smart-reservation {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 11px;
+}
+
+.smart-reservation a {
+  border: 1px solid #d9d9d9;
+  width: calc(50% - 2px);
+  height: 81px;
+  text-align: left;
+}
+
+.beach-chair {
+  flex: 1;
+}
+
+.traffic {
+  display: flex;
+  border: 1px solid #d9d9d9;
+  padding: 20px;
+  align-items: center;
+}
+
+.content-title p {
+  margin-top: 10px;
+}
+
+.editors-clip .content-area ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editors-clip .content-area ul img {
+  border-radius: 50%;
+}
+
+.editors-clip .desc-btn {
+  border: 1px solid #272830;
+  width: 220px;
+  margin: 70px 0;
+}
+
+/* main 끝 */
+.footer {
+  background-color: #444b55;
+}
+
+.footer-top {
+  background-color: #e9e9e9;
+}
+
+.footer-top .inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-top ul {
+  display: flex;
+}
+
+.site-list-box {
+  display: flex;
+}
+
+.footer-bottom .inner {
+  font-family: 돋움;
+  font-size: 12px;
+  color: #8e8e8e;
+  position: relative;
+  height: 150px;
+}
+
+.footer-menu {
+  display: flex;
+}
+
+.footer-bottom .kg img {
+  width: 79px;
+  height: 70px;
+  background-color: #fff;
+  position: absolute;
+  right: 70px;
+  top: 20px;
+  padding: 1px 5px 4px;
+  border-radius: 6px;
 }/*# sourceMappingURL=index.css.map */
