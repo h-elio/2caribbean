@@ -4,11 +4,6 @@ body {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-header .inner {
-  width: 960px;
-  margin: auto;
-}
-
 main .inner,
 footer .inner {
   width: 1000px;
@@ -16,12 +11,19 @@ footer .inner {
 }
 
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
   color: #666;
   font-family: 돋움, dotum, sans-serif;
 }
-
 .header .inner {
+  width: 960px;
   height: 40px;
+  margin: auto;
 }
 
 .header-top {
@@ -32,56 +34,83 @@ footer .inner {
   font-size: 13.5px;
   font-weight: bold;
 }
-
 .header-top .inner {
   display: flex;
   justify-content: space-between;
 }
-
-.logo {
+.header-top .inner .logo {
   margin-right: 31px;
 }
-
-.sitemenu {
+.header-top .inner .sitemenu {
   display: flex;
   text-align: center;
 }
-
-.sitemenu li {
+.header-top .inner .sitemenu li {
   width: 119px;
   border-left: 1px solid #d9d9d9;
 }
-
-.sitemenu li:last-child {
+.header-top .inner .sitemenu li:last-child {
   width: 95px;
 }
-
-.language-box {
+.header-top .inner .sitemenu .caribbean {
+  background-color: #fff;
+  height: 41px;
+}
+.header-top .inner .language-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 166px;
   border-left: 1px solid #d9d9d9;
-  text-align: center;
 }
-
-.reservation {
+.header-top .inner .language-box ul {
+  display: none;
+  position: absolute;
+  top: 33px;
+  right: 15px;
+  z-index: 1000;
+  border: 1px solid #8e8e8e;
+  padding-left: 8px;
+  background-color: #fbfbfb;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  width: 104px;
+  height: 66px;
+}
+.header-top .inner .language-box ul li {
+  height: 14px;
+}
+.header-top .inner .language-box img {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+}
+.header-top .inner .language-box img:nth-of-type(2) {
+  width: 12px;
+  height: 12px;
+}
+.header-top .inner .language-box:hover ul {
+  display: block;
+}
+.header-top .inner .reservation {
   display: flex;
 }
-
-.reservation li {
+.header-top .inner .reservation li {
   width: 98px;
   text-align: center;
   color: white;
   font-size: 12px;
 }
-
-.reservation li:first-child {
+.header-top .inner .reservation li:first-child {
   background-color: #ff8001;
 }
-
-.reservation li:nth-child(2) {
+.header-top .inner .reservation li:nth-child(2) {
   background-color: #2ebdca;
 }
-
-.reservation li:last-child {
+.header-top .inner .reservation li:last-child {
   background-color: #8a2fd5;
 }
 
@@ -89,7 +118,6 @@ footer .inner {
   border-bottom: 3px solid #548ce0;
   height: 65px;
 }
-
 .header-middle .inner {
   padding-top: 12px;
   padding-bottom: 6px;
@@ -97,7 +125,6 @@ footer .inner {
   justify-content: center;
   position: relative;
 }
-
 .header-middle .util {
   display: flex;
   position: absolute;
@@ -105,14 +132,12 @@ footer .inner {
   margin-top: 10px;
   margin-right: 50px;
 }
-
-.util li {
+.header-middle .util li {
   font-size: 12px;
   margin-right: 20px;
   position: relative;
 }
-
-.util li::after {
+.header-middle .util li::after {
   content: "";
   width: 1px;
   height: 9px;
@@ -122,87 +147,75 @@ footer .inner {
   transform: translateY(-50%);
   right: -10px;
 }
-
-.util li:last-child::after {
+.header-middle .util li:last-child::after {
   display: none;
 }
 
-.carib-logo {
-  z-index: -1;
+.header-bottom {
+  height: 40px;
+  overflow: hidden;
+  position: relative;
 }
-
-.gnb {
+.header-bottom::after {
+  content: "";
+  width: 100%;
+  top: 40px;
+  left: 0;
+  height: 1px;
+  background-color: #e6e6e6;
+  position: absolute;
+  z-index: 100001;
+}
+.header-bottom:hover {
+  height: 250px;
+}
+.header-bottom .gnb {
   display: flex;
   text-align: center;
+  position: relative;
 }
-
-.gnb .dep1 > a {
+.header-bottom .gnb .dep1 > a {
   display: block;
   width: 240px;
   font-weight: bold;
   height: 41px;
-  line-height: 43px;
-  border-bottom: 1px solid #d9d9d9;
+  line-height: 41px;
   box-sizing: border-box;
 }
-
-.gnb .dep1 > a:hover {
+.header-bottom .gnb .dep1 > a:hover {
   background-color: rgb(24, 165, 255);
   color: #fff;
 }
-
-.gnb .dep1 .dep2 {
-  display: none;
+.header-bottom .gnb .dep1 .dep2 {
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  border-collapse: collapse;
   text-align: left;
-  border-right: 1px solid #d9d9d9;
-  border-bottom: 1px solid #d9d9d9;
   height: 215px;
   padding: 20px;
+  width: 25%;
   box-sizing: border-box;
-  background-color: #fff;
-  z-index: 100;
+  background: url(https://wwwcdn.everland.com/web/images/front/caribbean/main_new/bg_depth.gif) left top repeat-y;
+  position: absolute;
+  z-index: 10000;
+  top: 40px;
 }
-
-.gnb .dep1:first-child .dep2 {
-  border-left: 1px solid #d9d9d9;
-}
-
-.gnb .dep1 .dep2 li a {
+.header-bottom .gnb .dep1 .dep2 li a {
   display: block;
   font-weight: normal;
   margin: 12px 0;
   font-size: 14px;
 }
-
-.gnb .dep1 .dep2 li a:hover {
+.header-bottom .gnb .dep1 .dep2 li:hover {
   color: #548ce0;
   text-decoration: underline;
 }
-
-.gnb:hover .dep2 {
+.header-bottom .gnb .dep1 .dep2 img {
+  padding-top: 69px;
+  padding-left: 60px;
+}
+.header-bottom .gnb:hover .dep2 {
   display: block;
-}
-
-.main-banner {
-  width: 100vw;
-}
-
-.main-banner .banner-bg {
-  width: 100vw;
-  min-height: 371px;
-  max-height: 570px;
-  position: relative;
-  z-index: -999;
-}
-
-.banner-txt {
-  z-index: -998;
-  width: 70%;
-  max-width: 1000px;
-  position: absolute;
-  top: 145px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .section-title {
@@ -212,7 +225,6 @@ footer .inner {
   color: #272830;
   padding: 60px 0 40px 0;
 }
-
 .section-title .subtitle {
   font-family: "Noto Sans KR", Montserrat, "Malgun Gothic", Dotum, sans-serif;
   font-size: 20px;
@@ -221,12 +233,63 @@ footer .inner {
   display: block;
 }
 
-.ticket-promotion {
+section.main-banner {
+  padding-top: 150px;
+  overflow: hidden;
+  position: relative;
+}
+section.main-banner .banner-img-area {
+  position: relative;
+  min-width: 1040px;
+}
+section.main-banner .banner-img-area .banner-txt-area img {
+  width: 100%;
+  min-width: 650px;
+}
+section.main-banner .banner-img-area .banner-txt-area {
+  width: 930px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  height: 100%;
+}
+section.main-banner .banner-img-area .banner-txt-area img {
+  height: 100%;
+}
+section.main-banner .banner-img-area .slide-btn-area {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px;
+}
+section.main-banner .banner-img-area .slide-btn-area .control-btn {
+  display: block;
+  width: 20px;
+  overflow: hidden;
+  height: 20px;
+  background: url(../cari-img/btn_slide_control.png) no-repeat;
+  margin: 0 5px;
+}
+section.main-banner .banner-img-area .slide-btn-area .page-btn {
+  margin: 0 3px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  background: url(../cari-img/pagination.png) no-repeat;
+}
+section.main-banner .banner-img-area .slide-btn-area .page-btn:nth-of-type(2) {
+  background-position: bottom;
+}
+
+section.ticket-promotion {
   background-color: #f7f7f7;
   padding-bottom: 60px;
 }
-
-.ticket-promotion ul {
+section.ticket-promotion .ticket-promotion-list {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -234,16 +297,29 @@ footer .inner {
   text-align: center;
   border: 1px solid #e6e6e6;
 }
-
-.ticket-promotion ul li {
+section.ticket-promotion .ticket-promotion-list li {
   width: 20%;
+  position: relative;
 }
-
-.ticket-promotion ul li a {
+section.ticket-promotion .ticket-promotion-list li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 1px;
+  height: 180px;
+  background-color: #e6e6e6;
+}
+section.ticket-promotion .ticket-promotion-list li:last-child::after {
+  display: none;
+}
+section.ticket-promotion .ticket-promotion-list li a {
   display: block;
 }
 
 .ticket-promotion li a p:nth-of-type(1) {
+  line-height: 25px;
   font-size: 14px;
   margin: 15px 0;
 }
@@ -256,6 +332,7 @@ footer .inner {
 .ticket-promotion li a p:nth-of-type(2) {
   font-size: 18px;
   font-weight: 500;
+  line-height: 25px;
 }
 
 .ticket-promotion li a p:nth-of-type(3) {
@@ -298,6 +375,7 @@ footer .inner {
 
 .content-title {
   font-family: "Montserrat", sans-serif;
+  color: #272830;
   font-size: 28px;
   padding-bottom: 33px;
   position: relative;
@@ -313,9 +391,12 @@ footer .inner {
   background: url(../cari-img/bg_smart_reservation_ico.png) no-repeat;
 }
 
-.content-title span {
+.information .content-area .content-title span {
+  margin-top: 5px;
   font-size: 18px;
+  font-weight: 300;
   display: block;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .news-notice {
@@ -347,6 +428,12 @@ footer .inner {
 .today {
   padding: 37px 21px;
   box-sizing: border-box;
+}
+.today .desc-btn {
+  background: none;
+  width: 200px;
+  padding: 0;
+  color: #134ef6;
 }
 
 .today-date {
@@ -396,7 +483,8 @@ footer .inner {
 }
 
 .smart-content .content-title {
-  padding: 35px 0;
+  font-family: "Noto Sans KR", sans-serif;
+  padding: 37px 0;
   background-color: #134ef6;
   color: white;
 }
@@ -404,17 +492,37 @@ footer .inner {
 .smart-reservation {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 11px;
+  margin-bottom: 14px;
 }
 
 .smart-reservation a {
-  border: 1px solid #d9d9d9;
-  width: calc(50% - 2px);
+  border: 1px solid #e6e6e6;
+  width: 50%;
   height: 81px;
+  line-height: 81px;
   text-align: left;
+  padding-left: 75px;
+  box-sizing: border-box;
+}
+
+.utilization {
+  background: url(../cari-img/ico_smart_reservation_01_01.png) no-repeat left 20px center;
+}
+
+.baycoin {
+  background: url(../cari-img/ico_smart_reservation_02_01.png) no-repeat left 20px center;
+}
+
+.valet {
+  background: url(../cari-img/ico_smart_reservation_03_01.png) no-repeat left 20px center;
+}
+
+.village {
+  background: url(../cari-img/ico_smart_reservation_04_01.png) no-repeat left 20px center;
 }
 
 .beach-chair {
+  background: url(../cari-img/ico_smart_reservation_05_01.png) no-repeat left 20px center;
   flex: 1;
 }
 
@@ -423,6 +531,42 @@ footer .inner {
   border: 1px solid #d9d9d9;
   padding: 20px;
   align-items: center;
+}
+
+.traffic-text {
+  font-size: 17px;
+  text-align: left;
+  margin-left: 15px;
+  line-height: 1.4;
+}
+
+.traffic-text .small {
+  font-size: 15px;
+}
+
+.traffic-text .violet {
+  color: #6d2cb7;
+}
+
+.editors-clip .section-title strong {
+  background-color: #fff;
+  padding: 0 66px;
+}
+
+.editors-clip .section-title {
+  position: relative;
+}
+
+.editors-clip .section-title strong::before {
+  content: "";
+  position: absolute;
+  top: 77px;
+  transform: translateY(-50%);
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 1px;
+  z-index: -10;
 }
 
 .content-title p {
@@ -434,8 +578,16 @@ footer .inner {
   justify-content: space-between;
 }
 
-.editors-clip .content-area ul img {
+.clip-imgbox {
+  width: 215px;
+  height: 215px;
+  overflow: hidden;
   border-radius: 50%;
+}
+
+.editors-clip .content-area ul li:hover img {
+  transform: scale(1.05);
+  transition: 0.5s;
 }
 
 .editors-clip .desc-btn {
@@ -444,7 +596,40 @@ footer .inner {
   margin: 70px 0;
 }
 
+.clip-textbox p:first-child {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.clip-textbox p:last-child {
+  margin-top: 5px;
+  font-size: 17px;
+}
+
 /* main 끝 */
+.aside {
+  position: absolute;
+  right: 0;
+  top: 800px;
+  right: 50%;
+  margin-right: -650px;
+}
+.aside div {
+  width: 95px;
+  height: 95px;
+  background-color: #d1d1d1;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  padding-top: 35px;
+  box-sizing: border-box;
+  margin: 10px;
+}
+.aside .aside-promo {
+  background-color: #134ef6;
+}
+
 .footer {
   background-color: #444b55;
 }
@@ -464,9 +649,72 @@ footer .inner {
 
 .site-list-box {
   display: flex;
+  color: #8e8e8e;
+  font-size: 12px;
+  box-sizing: border-box;
+  margin: 10px;
+}
+.site-list-box a {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.site-list-box img {
+  width: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #e6e6e6;
+}
+.site-list-box .resort {
+  width: 137px;
+  margin-right: 5px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #fff;
+  position: relative;
+}
+.site-list-box .resort .resort-site-list {
+  display: none;
+  background-color: #fff;
+  color: black;
+  font-family: 돋움;
+  border: 1px solid #e6e6e6;
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  line-height: 1.4;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.site-list-box .resort:hover .resort-site-list {
+  display: block;
+}
+.site-list-box .family {
+  width: 188px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #fff;
+  position: relative;
+}
+.site-list-box .family .family-site-list {
+  display: none;
+  background-color: #fff;
+  color: black;
+  font-family: 돋움;
+  border: 1px solid #e6e6e6;
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  line-height: 1.4;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.site-list-box .family:hover .family-site-list {
+  display: block;
 }
 
 .footer-bottom .inner {
+  box-sizing: border-box;
+  padding: 22px;
   font-family: 돋움;
   font-size: 12px;
   color: #8e8e8e;
@@ -474,8 +722,38 @@ footer .inner {
   height: 150px;
 }
 
+.footer-bottom em {
+  font-style: normal;
+  color: #d1d1d1;
+}
+
 .footer-menu {
   display: flex;
+  margin-bottom: 12px;
+}
+
+.footer-menu li {
+  margin-right: 20px;
+  position: relative;
+}
+
+.footer-menu li::after {
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  right: -10px;
+  width: 2px;
+  height: 7px;
+  background-color: #8e8e8e;
+  position: absolute;
+}
+
+.footer-menu li:last-child::after {
+  display: none;
+}
+
+.footer-text > p {
+  padding: 4px;
 }
 
 .footer-bottom .kg img {
