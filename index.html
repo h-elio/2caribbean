@@ -11,6 +11,12 @@
             src="https://kit.fontawesome.com/1c674ecc00.js"
             crossorigin="anonymous"
         ></script>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+        />
+
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     </head>
     <body>
         <header class="header">
@@ -120,19 +126,43 @@
         </header>
         <!-- e:header -->
         <main class="main">
-            <section class="main-banner">
-                <div class="banner-img-area">
-                    <img src="cari-img/bg(1).jpg" alt="" />
-                    <div class="banner-txt-area">
-                        <img src="cari-img/txt_02.png" alt="" />
+            <section class="main-banner swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="banner-img-area">
+                            <img src="cari-img/bg.jpg" alt="" />
+                        </div>
+                        <div class="banner-txt-area">
+                            <img src="cari-img/text.png" alt="" />
+                        </div>
                     </div>
-                    <div class="slide-btn-area">
-                        <a href="#" class="control-btn"> </a>
-                        <a href="#" class="page-btn"></a>
-                        <a href="#" class="page-btn"></a>
-                        <a href="#" class="page-btn"></a>
+                    <div class="swiper-slide">
+                        <div class="banner-img-area">
+                            <img src="cari-img/bg (1).jpg" alt="" />
+                        </div>
+                        <div class="banner-txt-area">
+                            <img src="cari-img/txt.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-img-area">
+                            <img src="cari-img/KB_BG.jpg" alt="" />
+                        </div>
+                        <div class="banner-txt-area">
+                            <img src="cari-img/KB_title_0603.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-img-area">
+                            <img src="cari-img/bg(1).jpg" alt="" />
+                        </div>
+                        <div class="banner-txt-area">
+                            <img src="cari-img/txt_02.png" alt="" />
+                        </div>
                     </div>
                 </div>
+                <div class="swiper-autoplay-btn"></div>
+                <div class="swiper-pagination"></div>
             </section>
             <section class="ticket-promotion">
                 <div class="inner">
@@ -486,5 +516,99 @@
                 </div>
             </div>
         </footer>
+        <script>
+            const swiper = new Swiper(".swiper", {
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+            // autoplay 버튼
+            const autoBtn = document.querySelector(".swiper-autoplay-btn");
+            const isPlay = autoBtn.classList.contains("play");
+
+            autoBtn.addEventListener("click", () => {
+                autoBtn.classList.toggle("play");
+                swiper.autoplay.stop();
+                if (!autoBtn.classList.contains("play")) {
+                    swiper.autoplay.start();
+                }
+            });
+            // 언어 선택
+            const langBtn = document.querySelector(".language-box");
+            const langList = document.querySelector(".language-box > ul");
+
+            langBtn.addEventListener("click", () => {
+                langList.classList.toggle("open");
+            });
+
+            // 리조트 내 시설
+            const resortBtn = document.querySelector(".resort");
+            const resortList = document.querySelector(".resort-site-list");
+
+            resortBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                resortList.classList.toggle("open");
+            });
+
+            // family site
+            const familyBtn = document.querySelector(".family");
+            const familyList = document.querySelector(".family-site-list");
+
+            familyBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                familyList.classList.toggle("open");
+            });
+
+            // aside scroll
+            const aside = document.querySelector("aside");
+            const asideEle = document.querySelectorAll(".aside > div");
+            document.addEventListener("scroll", () => {
+                const nowScroll = document.documentElement.scrollTop;
+                const promoScroll = 725;
+                const infoScroll = 1245;
+                const clipScroll = 1960;
+                const sectionScrolls = [promoScroll, infoScroll, clipScroll];
+                if (nowScroll > 820) {
+                    aside.classList.add("scroll");
+                } else {
+                    aside.classList.remove("scroll");
+                }
+                // aside navi
+                if (nowScroll < promoScroll) {
+                    activeRemove();
+                } else if (nowScroll > promoScroll && nowScroll < infoScroll) {
+                    activeRemove();
+                    asideEle[0].classList.add("active");
+                } else if (nowScroll > infoScroll && nowScroll < clipScroll) {
+                    activeRemove();
+                    asideEle[1].classList.add("active");
+                } else if (nowScroll > 1960) {
+                    activeRemove();
+                    asideEle[2].classList.add("active");
+                }
+                // 클릭하면 해당 영역으로 이동
+                asideEle.forEach((ele, index) => {
+                    ele.addEventListener("click", () => {
+                        scrollTo({
+                            top: sectionScrolls[index] + 1,
+                            behavior: "smooth",
+                        });
+                    });
+                });
+            });
+
+            // 해당 영역에 도착하면 active가 붙음
+            const activeRemove = () => {
+                asideEle.forEach((ele) => {
+                    ele.classList.remove("active");
+                });
+            };
+        </script>
     </body>
 </html>
