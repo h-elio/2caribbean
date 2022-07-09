@@ -430,6 +430,9 @@ section.ticket-promotion {
     height: 47px;
     line-height: 47px;
     border-top: 1px solid #d9d9d9;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .news-notice img {
